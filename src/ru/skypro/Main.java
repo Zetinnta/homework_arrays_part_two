@@ -9,8 +9,8 @@ public class Main {
         // Задача 1, 2, 3
         int[] accounting = generateRandomArray();
         int summary = 0;
-        int minPayment = 200_000;
-        int maxPayment = 100_000;
+        int minPayment = accounting[0];
+        int maxPayment = accounting[0];
         double average = 0;
 
         // accounting = generateRandomArray();
@@ -25,12 +25,10 @@ public class Main {
         String a = Arrays.toString(accounting);
         System.out.println(a);
         for (final int payment : accounting) {
-            boolean lessThanCurrentMin = (payment < minPayment);
-            boolean moreThanCurrentMax = (payment > maxPayment);
-            if (lessThanCurrentMin) {
+            if (payment < minPayment) {
                 minPayment = payment;
             }
-            if (moreThanCurrentMax) {
+            if (payment > maxPayment) {
                 maxPayment = payment;
             }
             summary += payment;
